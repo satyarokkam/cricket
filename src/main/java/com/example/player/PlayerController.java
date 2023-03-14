@@ -2,6 +2,7 @@ package com.example.player;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import com.example.player.PlayerService;
+import com.example.player.Player;
 
 @RestController
 public class PlayerController{
@@ -15,12 +16,10 @@ public class PlayerController{
 
     }
 
-    
     @GetMapping("/players/{playerId}")
     public Player getPlayer(@PathVariable("playerId") int playerId){
             return playerservice.getPlayer(playerId);
     }
-
 
     @PostMapping("/players")
 
@@ -40,6 +39,7 @@ public class PlayerController{
     public void deletePlayer(@PathVariable("playerId") int playerId){
         playerservice.deletePlayer(playerId);
     }
+
 
     
 }

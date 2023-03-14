@@ -1,12 +1,11 @@
 package com.example.player;
 
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.http.HttpStatus;
- 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.*;
-import com.example.player.Player;
-import com.example.player.PlayerRepository;
+import java.util.HashMap;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 // Don't modify the below code
 
@@ -29,6 +28,7 @@ public class PlayerService implements PlayerRepository {
     }
     int count=12;
     @Override
+    
     public ArrayList<Player> getPlayers(){
         Collection<Player>playerListCollection=team.values();
         ArrayList<Player>PlayerList=new ArrayList<>(playerListCollection);
@@ -38,11 +38,11 @@ public class PlayerService implements PlayerRepository {
     @Override
 
     public Player getPlayer(int playerId){
-        Player player=team.get(playerId);
-        if(player==null){
+        Player specificPlayer=team.get(playerId);
+        if(specificPlayer == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        return player;
+        return specificPlayer;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class PlayerService implements PlayerRepository {
         count+=1;
         return player;
     }
-    //System.out.println(team.size());
+
 
     @Override 
 
@@ -67,12 +67,12 @@ public class PlayerService implements PlayerRepository {
             existingPlayer.setPlayerName(player.getPlayerName());
         }
 
-        if(player.getjerseyNumber()!=0){
-            existingPlayer.setjerseyNumber(player.getjerseyNumber());
+        if(player.getJerseyNumber()!=0){
+            existingPlayer.setJerseyNumber(player.getJerseyNumber());
         }
 
-        if(player.getrole()!=null){
-            existingPlayer.setrole(player.getrole());
+        if(player.getRole()!=null){
+            existingPlayer.setRole(player.getRole());
         }
 
         return existingPlayer;

@@ -31,18 +31,18 @@ public class Player{
         return playerName;
     }
 
-    public void setjerseyNumber(int jerseyNumber){
+    public void setJerseyNumber(int jerseyNumber){
         this.jerseyNumber=jerseyNumber;
     }
-    public int getjerseyNumber(){
+    public int getJerseyNumber(){
         return jerseyNumber;
     }
 
-    public void setrole(String role){
+    public void setRole(String role){
         this.role=role;
     }
 
-    public String getrole(){
+    public String getRole(){
         return role;
     }
 }
